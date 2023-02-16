@@ -1,0 +1,11 @@
+{
+    "license": "MIT",
+    "dependencies": {
+        "ethers": "^6.0.3",
+        "solc": "^0.8.18"
+    },
+    "scripts": {
+        "compile": "yarn solcjs --abi --bin --base-path . -o ."
+    },
+    "devDependencies": {}
+}
