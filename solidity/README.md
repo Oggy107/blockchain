@@ -1,4 +1,4 @@
-# Basic Solidity Examples And Blockchain Fundamentals
+# Basic Solidity Examples
 
 ## Resources
 
