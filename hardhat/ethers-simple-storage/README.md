@@ -5,7 +5,9 @@
 * install dependencies using `yarn install`
 
 * compile solidity
-  * ```yarn compile SimpleStorage.sol```
+    ```
+    yarn compile SimpleStorage.sol
+    ```
 
 * run ganache instance locally and change address in deploy.js accordingly
 
