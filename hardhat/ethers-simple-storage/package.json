@@ -6,6 +6,5 @@
     },
     "scripts": {
         "compile": "yarn solcjs --abi --bin --base-path . -o ."
-    },
-    "devDependencies": {}
+    }
 }
