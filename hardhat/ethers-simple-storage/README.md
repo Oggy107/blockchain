@@ -9,7 +9,7 @@
     yarn compile SimpleStorage.sol
     ```
 
-* run ganache instance locally and change address in deploy.js accordingly
+* run ganache instance locally and change addresses and keys in `.env` file accordingly
 
 * run with `node deploy.js`
 
