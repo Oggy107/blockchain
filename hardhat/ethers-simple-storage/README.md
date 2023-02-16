@@ -16,6 +16,6 @@
 ## Deploy.js demonstrates (using ethers js)
 
 * Basic ethers js concepts (provider, signer, contract)
-* how to deploy contract (with contractFactory)
+* how to deploy contract (with contractFactory) on local blockchain (ganache) as well as on testnet (like goerli)
 * deploy contract by signing and sending transaction manualy
 * how to interact with already deployed contract
