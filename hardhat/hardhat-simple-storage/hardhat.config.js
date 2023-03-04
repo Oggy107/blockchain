@@ -23,6 +23,16 @@ module.exports = {
             accounts: [PRIVATE_KEY],
             chainId: 5,
         },
+        // we can spin up local HTTP JSON-RPC server using hardhat node task and use it using --network option
+        // note: default hardhat network is different from this locally running network though it has same chainid as hardhat network
+        local: {
+            url: "http://127.0.0.1:8545/",
+            // we do not need to pass accounts in here as hardhat will place them automatically
+            accounts: [
+                "0xdf57089febbacf7ba0bc227dafbffa9fc08a93fdc68e1e42411a14efcf23656e",
+            ],
+            chainId: 31337,
+        },
     },
     // you can get this api key at etherscans official website
     etherscan: {
