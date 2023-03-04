@@ -24,3 +24,5 @@ REPORT_GAS=true yarn hardhat test
 * deploying, managing and interacting with  contract in hardhat wrapped etherjs
 * verifying solidity contract source code on etherscan (using command line and programmatically)
 * creating a custom hardhat task in `hardhat.config.js` file
+* creating and running simple test using mocha in `test-deploy.js` file
+* hardhat-gas-reporter plugin

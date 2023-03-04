@@ -1,5 +1,8 @@
 require("@nomicfoundation/hardhat-toolbox");
 require("@nomiclabs/hardhat-etherscan");
+require("hardhat-gas-reporter");
+// solidity-coverage plugin shows the number of lines of solidity source code covered in tests. so you can be sure that you are testing everyting in your contract
+require("solidity-coverage");
 require("dotenv").config();
 
 const GOERLI_RPC_URL = process.env.GOERLI_RPC_URL;
@@ -33,9 +36,29 @@ module.exports = {
             ],
             chainId: 31337,
         },
+        // we can also add ganache local netork here and interact with it in code and using hardhat console
+        ganache: {
+            url: "http://127.0.0.1:7545",
+            accounts: [
+                "63329e97c01c9e286bf6954f13b4b7403ab872a12d380a181f9e9627a308292c",
+            ],
+            chainId: 1337,
+        },
     },
+    // hardhat etherscan plugin
     // you can get this api key at etherscans official website
     etherscan: {
         apiKey: ETHERSCAN_API_KEY,
+    },
+    // hardhat-gas-reporter plugin configuration. we can install it using npm or yarn
+    gasReporter: {
+        enabled: true,
+        // optional
+        outputFile: "gas-report.txt",
+        noColors: true,
+        // we need to add CoinMarketCap api key to get price in USD
+        // currency: "USD",
+        // coinmarketcap: {api key here}
+        // add token and gasPriceApi to retrieve the gas price of a particular blockchain
     },
 };
