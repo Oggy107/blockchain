@@ -26,3 +26,4 @@ REPORT_GAS=true yarn hardhat test
 * creating a custom hardhat task in `hardhat.config.js` file
 * creating and running simple test using mocha in `test-deploy.js` file
 * hardhat-gas-reporter plugin
+* **Note**: If using typescript we can use [typechain](https://www.npmjs.com/package/typechain) to add types to our contracts. It works with ethersjs, web3js, truffle, hardhat, etc. Our generated contract do not have methods and more specific types. typechain makes types for our contracts from contract abi.
