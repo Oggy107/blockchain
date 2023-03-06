@@ -15,11 +15,16 @@ contract FundMe {
     mapping(address => uint256) public addressToAmountFunded;
 
     address immutable owner;
+    AggregatorV3Interface immutable priceFeed;
 
     // called immediately after contract is deployed
-    constructor() {
+    // we can pass priceFeed contract address to constructor so that we do not hardcode
+    // it in our solidity code. we can pass the priceFeed contract address specific to the
+    // blockchain on which we are deploying this contract
+    constructor(address priceFeedAddress) {
         // msg.sender in constructor is address of person who deployed contract
         owner = msg.sender;
+        priceFeed = AggregatorV3Interface(priceFeedAddress);
     }
 
     // creating custom modifier
@@ -34,7 +39,7 @@ contract FundMe {
     function fund() public payable {
         // we dont need to pass first argument to getConversionRate() method
         // because it considers msg.value (here) as first argument
-        require(msg.value.getConversionRate() >= MINIMUM_USD, "come on man give me some more");
+        require(msg.value.getConversionRate(priceFeed) >= MINIMUM_USD, "come on man give me some more");
 
         funders.push(msg.sender);
         addressToAmountFunded[msg.sender] += msg.value;
