@@ -23,6 +23,10 @@ module.exports = {
             url: "https://goerli.blockpi.network/v1/rpc/public",
             chainId: 5,
         },
+        sepolia: {
+            url: "https://rpc.sepolia.org",
+            chainId: 11155111,
+        },
     },
     // we can have namedAccounts to work with muliple accounts in our networks
     namedAccounts: {

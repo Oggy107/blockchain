@@ -1,3 +1,6 @@
+// importing our custom network configuration for priceFeed addresses
+const networkConfig = require("../helper-hardhat-config").networkConfig;
+
 const deployFunc = async (hre) => {
     const { getNamedAccounts, deployments } = hre;
 
@@ -6,8 +9,6 @@ const deployFunc = async (hre) => {
     const { deploy, log } = deployments;
     const { deployer } = await getNamedAccounts();
     const chainId = hre.network.config.chainId;
-
-    console.log("yohohoho");
 
     // when going for localhost or hardhat network we want to use a mock
     // a mock simulates a real object. In short mocks are fake objects having properties of real objects
@@ -22,10 +23,18 @@ const deployFunc = async (hre) => {
     // if chaindId is Z use address A
     // but we are going to create a custom network configuration in this case in helper-hardhat-config.js (inspiration from aave-v3-core github repo)
 
+    const priceFeedAddress = networkConfig[chainId].priceFeedAddress;
+
+    // now priceFeedAddress is set to priceFeed contract address acording to network (testnets).
+    // but we do not have priceFeed contract to test in our local environment
+    // it's here where mocka come into play
+    // if the contract doesn't exist, we deploy a minimal versoin of it
+    // we create a new deploy script in deploy folder to deploy mocks
+
     const fundMe = await deploy("FundMe", {
         from: deployer,
         // we can pass arguments to contract construtor here
-        args: [],
+        args: [priceFeedAddress],
         log: true,
     });
 };
