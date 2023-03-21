@@ -34,7 +34,7 @@ contract Lottery {
         return uint256(keccak256(abi.encodePacked(block.number, block.timestamp, participantCount))) % _upperBound;
     }
 
-    function buyTicket() external payable  {
+    function buyTicket() public payable  {
         if (msg.value <= TICKET_PRICE)
             revert NotEnoughFunds("You do not have enough funds to buy ticket", TICKET_PRICE);
         
@@ -62,5 +62,13 @@ contract Lottery {
         require(success, "unbale to transfer funds to winner");
 
         return winner;
+    }
+
+    receive() external payable {
+        buyTicket();
+    }
+
+    fallback() external payable {
+        buyTicket();
     }
 }
