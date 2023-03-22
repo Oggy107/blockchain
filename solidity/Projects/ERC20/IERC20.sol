@@ -16,11 +16,13 @@ interface IERC20 {
 
     /**
      * @dev Returns the account balance of another account with address _owner
+     * @return balance Amouunt of tokens owned by _owner
      */
     function balanceOf(address _owner) external view returns (uint256 balance);
 
     /**
      * @dev Returns the total token supply.
+     * @return Total supply of token
      */
     function totalSupply() external pure returns (uint256);
 
@@ -28,12 +30,14 @@ interface IERC20 {
      * @dev Transfer token from sender to another account
      * @param _to transfer token to this address
      * @param _value amount of token to transfer
+     * @return success success indicator
      */
     function transfer(address _to, uint256 _value) external returns (bool success);
 
     /**
      * @dev Approve another address to spend your tokens
      * @param _spender approve this address to spend your tokens
+     * @return success success indicator
      */
     function approve(address _spender, uint256 _value) external returns (bool success);
 
@@ -41,6 +45,7 @@ interface IERC20 {
      * @dev Returns the amount which _spender is still allowed to withdraw from _owner
      * @param _owner owner of the tokens
      * @param _spender spender of the tokens
+     * @return remaining remaining allowance
      */
     function allowance(address _owner, address _spender) external view returns (uint256 remaining);
 
@@ -49,6 +54,7 @@ interface IERC20 {
      * @param _from address to transfer tokens from
      * @param _to address to which transfer tokens to
      * @param _value ammount of tokens to transfer
+     * @return success success indicator
      */
     function transferFrom(address _from, address _to, uint256 _value) external returns (bool success);
 
